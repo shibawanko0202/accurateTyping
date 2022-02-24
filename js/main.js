@@ -95,7 +95,7 @@
   function q(){
     untype.textContent = questions.splice(Math.floor(Math.random() * questions.length),1)[0];
     typed.textContent = "";
-    more.textContent = `Another ${questions.length}`;
+    more.textContent = `another ${questions.length}`;
   };
   
   //キーボードを叩いたら
