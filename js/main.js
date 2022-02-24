@@ -97,6 +97,29 @@
     typed.textContent = "";
     more.textContent = `another ${questions.length}`;
   };
+
+  //パーセンテージの表示
+  function rate(){
+    let accuracyRate = (scoreCount / (scoreCount + badCount) * 100).toFixed(2);
+    accuracy.textContent = accuracyRate;
+    ar.classList.remove("safe","caution","dead");
+    if(accuracyRate >= 95){
+      ar.classList.add("safe");
+    } else if(accuracyRate >= 80){
+      ar.classList.add("caution");
+    } else {
+      ar.classList.add("dead");
+    };
+  };
+
+  function finish(){
+    typed.textContent = "";
+    untype.textContent = "finished!";
+    isTyping = false;
+    more.textContent = "";
+    finishSound.currentTime = 0;
+    finishSound.play();
+  };
   
   //キーボードを叩いたら
   window.addEventListener("keydown",(e)=>{
@@ -122,12 +145,7 @@
       if(untype.textContent.length === 0){
         //問題が無くなったら終了
         if(questions.length === 0){
-          typed.textContent = "";
-          untype.textContent = "finished!";
-          isTyping = false;
-          more.textContent = "";
-          finishSound.currentTime = 0;
-          finishSound.play();
+          finish();
           return;
         };
         q();
@@ -150,7 +168,7 @@
         mt = missType.find((v) => v.key === e.key).num;
         miss.textContent = miss.textContent.replace(`${e.key}:${mt}`,`${e.key}:${mt + 1}`);
         missType.find((v) => v.key === e.key).num++;
-      } else { //初めてのカウント
+      } else { //初めてのミスキーカウント
         missType.push({
           key:e.key,
           num:1,
@@ -158,22 +176,12 @@
         miss.textContent += `${missType[missType.length - 1].key}:${missType[missType.length - 1].num}  `;
       };
       q();
+      //ミスして終了した場合
+      if(questions.length === 0 && untype.textContent.length === 0){
+        finish();
+      };
     };
   });
-
-  //パーセンテージの表示
-  function rate(){
-    let accuracyRate = (scoreCount / (scoreCount + badCount) * 100).toFixed(2);
-    accuracy.textContent = accuracyRate;
-    ar.classList.remove("safe","caution","dead");
-    if(accuracyRate >= 95){
-      ar.classList.add("safe");
-    } else if(accuracyRate >= 80){
-      ar.classList.add("caution");
-    } else {
-      ar.classList.add("dead");
-    };
-  };
 
   //始めの問題をセット
   window.addEventListener("keydown",(e)=>{
