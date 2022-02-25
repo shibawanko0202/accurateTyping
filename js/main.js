@@ -188,6 +188,9 @@
     if(isTyping){
       return;
     };
+    if(questions.length === 0){
+      return;
+    };
     if(!(e.key === " " || e.key === "Enter")){
       return;
     };
