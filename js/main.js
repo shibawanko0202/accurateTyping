@@ -10,6 +10,9 @@
   const accuracy = document.getElementById("accuracy"); 
   const ar = document.getElementById("ar");
   const container = document.getElementById("container");
+  const hambarger = document.getElementById("hambarger");
+  const overlay = document.getElementById("overlay");
+  const close = document.getElementById("close");
 
   //サウンドエフェクト
   const typeSound = new Audio("sound/カタッ(Enterキーを押した音).mp3");
@@ -132,12 +135,26 @@
     balloon.textContent = `${key}`;
     container.appendChild(balloon);
   };
+
+  //ハンバーガーメニュー
+  hambarger.addEventListener("click",()=>{
+    overlay.classList.add("show");
+    hambarger.classList.add("hidden");
+  });
+  close.addEventListener("click",()=>{
+    overlay.classList.remove("show");
+    hambarger.classList.remove("hidden");
+  });
   
   //キーボードを叩いたら
   window.addEventListener("keydown",(e)=>{
     if(!isTyping){
       return;
-    }
+    };
+    //ハンバーガーメニューを開いていたらリターン
+    if(overlay.className === "show"){
+      return;
+    };
     //untypeの1文字目と一致していたら
     if(e.key === untype.textContent.charAt(0)){
       //untypeから削ってtypedに足す

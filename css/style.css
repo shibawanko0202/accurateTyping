@@ -1,3 +1,5 @@
+/* common */
+
 html{
   height: 100%;
 }
@@ -7,6 +9,9 @@ body{
   height: 100%;
   background-color: rgba(72, 121, 99,0.8);
 }
+
+/* header */
+
 header{
   display: flex;
   height: 70px;
@@ -26,27 +31,33 @@ header h2{
   font-size: 20px;
   margin: 12px 10px;
 } 
-nav ul{
+ul{
   display: flex;
   margin: 20px 10px;
   padding: 0;
 }
-nav ul li{
+ul li{
   list-style: none;
   margin: 0 10px;
 }
-nav ul li a{
+ul li a{
   text-decoration: none;
   color: #fff;
   font-size: 20px;
   transition: opacity .3s;
 }
-nav ul li a:hover{
+ul li a:hover{
   opacity: .6;
 }
 #now{
   color: black;
 }
+#hambarger{
+  display: none;
+}
+
+/* conrtainer */
+
 #container{
   background-color: #fff;
   opacity: 0.9;
@@ -65,6 +76,7 @@ nav ul li a:hover{
   font-family:'Times New Roman', Times, serif;
   font-size: 48px;
   letter-spacing: 0.1em;
+  display: inline;
 }
 #sc{
   display: flex;
@@ -127,8 +139,11 @@ nav ul li a:hover{
   z-index: -1;
   position: absolute;
   opacity: .8;
-  transition: transform 1s;
+  transition: transform 1.2s;
 }
+
+/* footer */
+
 footer{
   color: #fff;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -136,4 +151,87 @@ footer{
   height: 50px;
   line-height: 50px;
   text-align: center;
+}
+
+/* overlay */
+
+#overlay{
+  /* display: none; */
+  z-index: 1;
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: rgba(72, 121, 99,0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s;
+}
+#overlay.show{
+  /* display: block; */
+  opacity: 1;
+  pointer-events: all;
+}
+.overlay_menu{
+  text-align: center;
+  margin-top: 200px;
+}
+.overlay_menu ul{
+  flex-direction:column;
+}
+.overlay_menu ul li + li{
+  margin-top: 36px;
+}
+#overlay .overlay_menu li{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all .3s;
+}
+#overlay.show .overlay_menu li{
+  opacity: 1;
+  transform: none;
+}
+#overlay.show .overlay_menu li:nth-child(1){
+  transition-delay: .1s;
+}
+#overlay.show .overlay_menu li:nth-child(2){
+  transition-delay: .2s;
+}
+#overlay.show .overlay_menu li:nth-child(3){
+  transition-delay: .3s;
+}
+
+#close{
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  /* margin: 18px 10px 0 0; */
+  margin: 0;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+/* small */
+
+@media(max-width: 600px){
+  .normal_menu{
+   display: none;
+  }
+  #hambarger{
+    display: block;
+    margin: 18px 10px 0 0;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity .6s;
+  }
+  #hambarger.hidden{
+    opacity: 0;
+    pointer-events: none;
+  }
 }
