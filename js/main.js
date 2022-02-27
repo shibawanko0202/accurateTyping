@@ -13,6 +13,7 @@
   const hambarger = document.getElementById("hambarger");
   const overlay = document.getElementById("overlay");
   const close = document.getElementById("close");
+  const restart = document.getElementById("restart");
 
   //サウンドエフェクト
   const typeSound = new Audio("sound/カタッ(Enterキーを押した音).mp3");
@@ -123,6 +124,7 @@
     more.textContent = "";
     finishSound.currentTime = 0;
     finishSound.play();
+    restart.classList.add("show");
   };
 
   //ミスしたキーのバルーンを作成
@@ -222,10 +224,11 @@
     if(isTyping){
       return;
     };
-    if(questions.length === 0){
+    if(!(e.key === " " || e.key === "Enter")){
       return;
     };
-    if(!(e.key === " " || e.key === "Enter")){
+    if(questions.length === 0){
+      location.reload();
       return;
     };
     q();
