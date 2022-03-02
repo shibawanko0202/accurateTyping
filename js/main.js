@@ -120,6 +120,7 @@
   function finish(){
     typed.textContent = "";
     untype.textContent = "finished!";
+    untype.classList.add("flash");
     isTyping = false;
     more.textContent = "";
     finishSound.currentTime = 0;
@@ -231,6 +232,7 @@
       location.reload();
       return;
     };
+    untype.classList.remove("flash");
     q();
     isTyping = true;
     resetSound.currentTime = 0;
