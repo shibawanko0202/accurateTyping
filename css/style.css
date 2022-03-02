@@ -82,6 +82,7 @@ ul li a:hover{
   font-size: 48px;
   letter-spacing: 0.1em;
   display: inline;
+  font-weight: bold;
 }
 #untype.flash{
   animation: flash 2s linear infinite;
