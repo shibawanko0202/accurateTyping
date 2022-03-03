@@ -168,6 +168,11 @@
       scoreCount++;
       score.textContent = scoreCount;
       rate();
+      //文字を跳ねさせる
+      score.classList.add("pyon");
+      score.addEventListener("animationend",()=>{
+        score.classList.remove("pyon");
+      });
 
       //タイプ音を鳴らす
       typeSound.currentTime = 0;
@@ -190,6 +195,11 @@
       badCount++;
       bad.textContent = badCount;
       rate();
+      //文字を跳ねさせる
+      bad.classList.add("pyon");
+      bad.addEventListener("animationend",()=>{
+        bad.classList.remove("pyon");
+      });
 
       //ブザーを鳴らす
       badSound.currentTime = 0;

@@ -119,6 +119,19 @@ ul li a:hover{
   color: rgb(202, 87, 67);
   opacity: .8;
 }
+#score.pyon{
+  animation: pyon 0.1s ease;
+  position: relative;
+}
+@keyframes pyon {
+  0% {top: 0}
+  50% {top:-17px}
+  100%{top: 0}
+}
+#bad.pyon{
+  animation: pyon 0.1s ease;
+  position: relative;
+}
 #score,
 #bad{
   padding-left: 10px;
@@ -157,6 +170,7 @@ ul li a:hover{
 }
 #restart{
   display: none;
+  margin: 0;
 }
 @keyframes flash{
   0%{
