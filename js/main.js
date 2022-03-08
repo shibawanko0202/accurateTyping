@@ -173,7 +173,7 @@
       badSound.play();
 
       //ミスタイプのキーをカウント
-        if(missType.find((v) => v.key === e.key)){ //すでにあるなら加点
+      if(missType.find((v) => v.key === e.key)){ //すでにあるなら加点
         missType.find((v) => v.key === e.key).num++;
         //大きくする倍率指定
         document.getElementById(`${e.key}`).style.transform = `scale(${(missType.find((v) => v.key === e.key).num) * 0.9})`;
@@ -185,11 +185,11 @@
           num:1,
         });
       };
-      setQuestion();
       //ミスして終了した場合
       if(questions.length === 0){
         finish();
       };
+      setQuestion();
     };
   });
 
