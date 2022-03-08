@@ -159,7 +159,7 @@ visibility:hidden;
   letter-spacing: .05em;
   opacity: .8;
 }
-#more{
+#mean{
   color: black;
   height: 35px;
   line-height: 35px;
@@ -199,7 +199,7 @@ visibility:hidden;
 #bad{
   padding-left: 10px;
 }
-#ar{
+#rate{
   display: flex;
   align-items: flex-end;
   font-family: 'Xanh Mono', monospace;
@@ -211,16 +211,16 @@ visibility:hidden;
   font-size: 80px;
   margin: 0 0 0 auto;
 }
-#ar.safe{
+#rate.safe{
   color: rgb(72, 121, 99);
 }
-#ar.caution{
+#rate.caution{
   color: rgb(221, 206, 0);
 }
-#ar.dead{
+#rate.dead{
   color: rgb(182, 7, 7);
 }
-#ar p{
+#rate p{
   left: 50%;
   margin: 0 auto 0 0;
   padding: 0;
@@ -367,10 +367,3 @@ footer{
   }
 }
 
-/* small-hight */
-
-@media(max-height: 600px){
-  #miss{
-    display: none;
-  }
-}
