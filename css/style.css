@@ -10,6 +10,7 @@ body{
   background-color: rgba(72, 121, 99,0.8);
   font-family: 'Monofett', cursive;
   color: rgb(8, 41, 26);
+  user-select: none;
 }
 
 /* header */
@@ -96,6 +97,48 @@ visibility:hidden;
 .wf-active #container{
   visibility:visible;
 }
+#timer{
+  height: 20px;
+  width: 100%;
+}
+.timer{
+  background-color: rgb(72, 121, 99);
+  /* background-color: rgb(202, 87, 67); */
+  box-shadow:inset 4px 4px 6px black;
+  opacity: .8;
+  margin: 0 auto;
+  height: 20px;
+  width: 100px;
+  border-radius: 9999px;
+}
+@keyframes timerBifore{
+  0%{
+    transform: scale(0,0);
+  }
+  33%{
+    transform: scale(1.1,1.1);
+  }
+  66%{
+    transform: scale(.9,.9);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+@keyframes timerAfter{
+  0%{
+    transform: scaleX(1);
+  }
+  80%{
+    transform: scale(0.2,.9);
+  }
+  90%{
+    transform: scale(0.1,.8);
+  }
+  100%{
+    transform: scale(0,0);
+  }
+}
 #typed,
 #untype{
   color: black;
@@ -116,16 +159,18 @@ visibility:hidden;
   letter-spacing: .05em;
   opacity: .8;
 }
-#more,
-#restart{
+#more{
+  color: black;
   height: 35px;
-  font-size: 30px;
+  line-height: 35px;
+  font-size: 16px;
+  margin-top: 10px;
   font-family: 'Ibarra Real Nova', serif;
 }
 #misstype{
   display: flex;
   justify-content: center;
-  padding-top: 25px;
+  padding-top: 10px;
   font-size: 30px;
   letter-spacing: .05em;
   color: rgb(202, 87, 67);
@@ -135,10 +180,16 @@ visibility:hidden;
   animation: pyon 0.1s ease;
   position: relative;
 }
-@keyframes pyon {
-  0% {top: 0}
-  50% {top:-17px}
-  100%{top: 0}
+@keyframes pyon{
+  0%{
+    top: 0;
+  }
+  50%{
+    top:-17px;
+  }
+  100%{
+    top: 0;
+  }
 }
 #bad.pyon{
   animation: pyon 0.1s ease;
@@ -147,11 +198,6 @@ visibility:hidden;
 #score,
 #bad{
   padding-left: 10px;
-}
-#miss{
-  min-height: 30px;
-  font-size: 24px;
-  font-family: 'Ibarra Real Nova', serif;
 }
 #ar{
   display: flex;
@@ -181,6 +227,9 @@ visibility:hidden;
   font-size: 40px;
 }
 #restart{
+  height: 35px;
+  font-size: 30px;
+  font-family: 'Ibarra Real Nova', serif;
   visibility: hidden;
   color: black;
   margin: 0;
@@ -202,9 +251,10 @@ visibility:hidden;
 }
 .balloon{
   font-family: 'Ibarra Real Nova', serif;
-  width: 16px;
-  height: 16px;
-  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  font-size: 14px;
   border-radius: 50%;
   background-color: rgb(72, 121, 99);
   color: #fff;
