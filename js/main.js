@@ -1,5 +1,6 @@
-"use strit"
-{
+(function(){
+  "use strit"
+  
   //Web Font Loader
   window.WebFontConfig = {
     google: { families: ['Ibarra+Real+Nova','Monofett','Xanh+Mono'] },
@@ -214,5 +215,4 @@
     resetSound.play();
   });
 
-
-}
+})();

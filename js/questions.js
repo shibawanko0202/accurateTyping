@@ -36,6 +36,10 @@ const questions = [
   //css
   {word : "stylesheet",
     mean : "外部cssを適用する為のlink要素のrel属性"},
+  {word : "width",
+    mean : "要素の幅を指定する為のプロパティ"},
+  {word : "height",
+    mean : "要素の高さを指定する為のプロパティ"},
   {word : "font-family",
     mean : "フォントを指定する為のプロパティ"},
   {word : "font-size",
@@ -62,14 +66,28 @@ const questions = [
     mean : "要素の上にマウスポインタ―がある際の表示を指定するプロパティ"},
   {word : "pointer",
     mean : "要素をクリックした時にイベントが発生することを示すcursorの値"},
+  {word : "color",
+    mean : "要素の文字色を指定する為のプロパティ"},
   {word : "background-color",
     mean : "要素の背景色を指定する為のプロパティ"},
+  {word : "letter-spacing",
+    mean : "文字の間隔を指定する為のプロパティ"},
+  {word : "opacity",
+    mean : "要素の透過率を指定する為のプロパティ"},
+  {word : "z-index",
+    mean : "要素の重なりの優先度を指定する為のプロパティ"},
 
   //javascript
   {word : "helloworld",
   mean : "コンピュータへの一般的な挨拶"},
   {word : "usestrict",
     mean : "厳格モードの宣言"},
+  {word : "const",
+    mean : "定数宣言。再代入、再宣言が出来ない。ブロックスコープ"},
+  {word : "let",
+    mean : "変数宣言。再代入は出来るが再宣言は出来ない。ブロックスコープ"},
+  {word : "var",
+    mean : "変数宣言。再代入、再宣言ともに出来る。関数スコープ"},
   {word : "window",
     mean : "最上位オブジェクト、documentはこの下に位置している"},
   {word : "document",
@@ -145,8 +163,8 @@ const questions = [
 ];
 
   //問題の単語数の確認
-  console.log(`問題数は ${questions.length} です`)
+  console.log(`問題(単語)数は ${questions.length} です。`);
   let totalLength = questions.reduce(function(sum,element){
     return sum + element.word;
   });
-  console.log(`問題の総文字数は ${totalLength.length} です`)
+  console.log(`問題の総文字数は ${totalLength.length} です。`);
