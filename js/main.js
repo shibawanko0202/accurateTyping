@@ -44,6 +44,7 @@
 
   //時間関係
   let isTyping = false;
+  let missHold = false;
   
   //出題数(文字数)
   const QuestionLength = 350;
@@ -169,6 +170,9 @@
       };
 
     } else { //ミスタイプした場合
+      if(missHold){
+        return;
+      };
       //ミスタイプに加点
       badCount++;
       bad.textContent = badCount;
@@ -203,6 +207,11 @@
         finish();
       };
       setQuestion();
+      //連続で問題が飛ばされないように1秒キープ
+      missHold = true;
+      setTimeout(()=>{
+        missHold = false;
+      },1000);
     };
   });
 

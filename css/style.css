@@ -91,7 +91,6 @@ ul li a:hover{
   align-items: center;
 }
 #container{
-  overflow: hidden;
   width: 100%;
   visibility:hidden;
 }
@@ -157,7 +156,7 @@ ul li a:hover{
 #goodtype{
   display: flex;
   justify-content: center;
-  padding: 0 0 20px;
+  padding: 10px 0 20px;
   font-size: 30px;
   letter-spacing: .05em;
   opacity: .8;
@@ -385,7 +384,7 @@ footer{
 
 /* mobile */
 
-@media(max-width: 600px){
+@media(max-width: 640px){
   .normal_menu{
    display: none;
   }
