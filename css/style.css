@@ -71,7 +71,7 @@ ul li a:hover{
 
 /* main */
 
-#main{
+#balloonroom{
   background-color: #fff;
   box-shadow: 4px 4px 4px rgb(33, 56, 46);
   opacity: 0.9;
@@ -91,19 +91,20 @@ ul li a:hover{
   align-items: center;
 }
 #container{
+  overflow: hidden;
   width: 100%;
-visibility:hidden;
+  visibility:hidden;
 }
 .wf-active #container{
   visibility:visible;
 }
 #timer{
+  margin: 0 auto;
   height: 20px;
   width: 100%;
 }
 .timer{
   background-color: rgb(72, 121, 99);
-  /* background-color: rgb(202, 87, 67); */
   box-shadow:inset 4px 4px 6px black;
   opacity: .8;
   margin: 0 auto;
@@ -141,6 +142,8 @@ visibility:hidden;
 }
 #typed,
 #untype{
+  overflow-wrap: break-word;
+  width: 100%;
   color: black;
   font-family: 'Ibarra Real Nova', serif;
   font-size: 55px;
@@ -162,7 +165,6 @@ visibility:hidden;
 #mean{
   color: black;
   height: 35px;
-  line-height: 35px;
   font-size: 16px;
   margin-top: 10px;
   font-family: 'Ibarra Real Nova', serif;
@@ -250,6 +252,7 @@ visibility:hidden;
   animation: flash 2s linear infinite;
 }
 .balloon{
+  display: block;
   font-family: 'Ibarra Real Nova', serif;
   width: 20px;
   height: 20px;
@@ -264,11 +267,46 @@ visibility:hidden;
   opacity: .8;
   transition: transform 1.2s;
   pointer-events: all;
+  cursor: pointer;
   box-shadow:inset 1px 1px 3px black;
   overflow: hidden;
 }
 .balloon:hover{
   z-index: 1;
+}
+.balloon.explosion{
+  animation: bubble 1s ease-out;
+  pointer-events: none;
+}
+.balloon.explosion.disabled{
+  display: none;
+}
+
+@keyframes bubble{
+  0%{
+    box-shadow: 0 0 3px 2px rgba(255,255,255,0),
+    0 0 0px 0px rgba(255,255,255,1),
+    0 0 0px 0px rgba(255,255,255,0);
+  }
+  10%{
+    background-color: rgba(0,0,0,0);
+    color: rgba(0,0,0,0);
+    text-shadow: none;
+    box-shadow: 0 0 3px 2px rgba(255,255,255,1),
+    0 0 3px 2px rgba(255,255,255,1) inset,
+    0 0 3px 2px rgba(255,255,255,1),
+    0 0 3px 3px rgba(0,0,0,1);
+  }
+  100%{
+    opacity: 0;
+    background-color: rgba(0,0,0,0);
+    color: rgba(0,0,0,0);
+    text-shadow: none;
+    box-shadow: 0 0 3px 5px rgba(255,255,255,0),
+    0 0 2px 5px rgba(255,255,255,1) inset,
+    0 0 2px 5px rgba(255,255,255,1),
+    0 0 2px 5px rgba(0,0,0,1);
+  }
 }
 
 /* footer */

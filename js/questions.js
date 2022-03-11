@@ -94,6 +94,8 @@ const questions = [
     mean : "DOMツリーへアクセスする為のオブジェクト"},
   {word : "getelementbyid",
     mean : "指定されたidを取得する為のメソッド"},
+  {word : "queryselector",
+    mean : "指定されたセレクターの最初の要素を取得する為のメソッド"},
   {word : "textcontent",
     mean : "ノードとその子孫のテキストを表すプロパティ"},
   {word : "addeventlistener",
@@ -136,6 +138,8 @@ const questions = [
   //命名
   {word : "current",
     mean : "「現在の」変数名などでよく使用される"},
+  {word : "disabled",
+    mean : "「無効」クラス名などでよく使用される"},
 
   //ファイル名
   {word : "index.html",
