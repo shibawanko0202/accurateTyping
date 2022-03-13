@@ -76,9 +76,9 @@ const questions = [
     mean : "要素の透過率を指定する為のプロパティ"},
   {word : "z-index",
     mean : "要素の重なりの優先度を指定する為のプロパティ"},
-  {word : "@keyframes",
+  {word : "keyframes",
     mean : "詳細にアニメーションを設定できるアットルール"},
-  {word : "@media",
+  {word : "media",
     mean : "画面のサイズに合わせてcssの適用を変化させるアットルール"},
 
   //javascript
