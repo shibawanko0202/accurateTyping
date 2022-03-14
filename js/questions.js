@@ -138,6 +138,10 @@ const questions = [
     mean : "指定したタグの要素を生成するメソッド"},
   {word : "appendchild",
     mean : "指定した親ノードの末尾に()のノードを生成するメソッド"},
+  {word : "navigator",
+    mean : "ユーザーが使用しているブラウザの情報を持つオブジェクト"},
+  {word : "useragent",
+    mean : "使用しているデバイスの情報を持つnavigatorのプロパティ"},
 
   //命名
   {word : "current",
