@@ -290,13 +290,6 @@ ul li a:hover{
 .balloon:hover{
   z-index: 1;
 }
-.explosion{
-  animation: bubble 1s ease-out;
-  pointer-events: none;
-}
-.explosion.disabled{
-  display: none;
-}
 @keyframes bubble{
   0%{
     box-shadow: 0 0 3px 2px rgba(255,255,255,0),
@@ -342,7 +335,15 @@ ul li a:hover{
   box-shadow:inset 2px 2px 5px black;
   /* inset -5px -5px 20px 5px rgba(0,0,0,.5); */
   text-shadow: inset 1px 1px 2px black;
+  animation: up 5s ease-in forwards, bubble 1s ease-out 5s;
   z-index: -1;
+}
+.explosion{
+  animation: bubble 1s ease-out;
+  pointer-events: none;
+}
+.disabled{
+  display: none;
 }
 @keyframes up{
   0%{
