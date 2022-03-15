@@ -73,9 +73,9 @@
     //左右どっちに作るか
     let LorR = Math.floor(Math.random() * 2);
     if(LorR === 0){
-      bonus.style.left = `${Math.random() * 20}%`;
+      bonus.style.left = `${Math.random() * 30}%`;
     } else {
-      bonus.style.right = `${Math.random() * 20}%`;
+      bonus.style.right = `${Math.random() * 30}%`;
     };
     bonus.textContent = `${point * 10}type`;
     bonus.style.width = `${point * 6 + 60}px`;
@@ -131,9 +131,22 @@
     let balloon = document.createElement("div");
     balloon.className = "balloon";
     balloon.id = `${key}`;
-    balloon.style.top = `${Math.random() * 98 + 1}%`;
-    balloon.style.left = `${Math.random() * 98 + 1}%`;
     balloon.textContent = `${key}`;
+    //問題文に被らないようにランダム配置
+    let blocks = Math.floor(Math.random() * 7);
+    if(blocks == 0){//上端ブロック
+      balloon.style.top = `${Math.random() * 10 + 1}%`;
+      balloon.style.left = `${Math.random() * 98 + 1}%`;
+    } else if(blocks <= 2){//下端ブロック
+      balloon.style.bottom = `${Math.random() * 20 + 1}%`;
+      balloon.style.left = `${Math.random() * 98 + 1}%`;
+    } else if(blocks <= 4){//左端ブロック
+      balloon.style.top = `${Math.random() * 69 + 11}%`;
+      balloon.style.left = `${Math.random() * 28 + 1}%`;
+    } else {//右端ブロック
+      balloon.style.top = `${Math.random() * 69 + 11}%`;
+      balloon.style.right = `${Math.random() * 28 + 1}%`;
+    };
     //カーソルをのせたら数値を表示
     balloon.addEventListener("mouseenter",()=>{
       balloon.style.fontSize = "10px";
