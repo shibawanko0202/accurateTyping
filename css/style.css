@@ -1,5 +1,11 @@
 /* common */
 
+:root{
+  --typingGreen: rgb(72, 121, 99);
+  --typingGreenop: rgba(72, 121, 99,0.8);
+  --typingGreenShadow: rgb(33, 56, 46);
+}
+
 html{
   height: 100%;
 }
@@ -7,19 +13,18 @@ body{
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: rgba(72, 121, 99,0.8);
+  background-color: var(--typingGreenop);
   font-family: 'Monofett', cursive;
   color: rgb(8, 41, 26);
   user-select: none;
 }
-
 /* header */
 
 header{
   display: flex;
   height: 70px;
   justify-content: space-between;
-  text-shadow: 4px 4px 4px rgb(33, 56, 46);
+  text-shadow: 4px 4px 4px var(--typingGreenShadow);
   visibility:hidden;
 }
 .wf-active header{
@@ -73,7 +78,7 @@ ul li a:hover{
 
 #balloonroom{
   background-color: #fff;
-  box-shadow: 4px 4px 4px rgb(33, 56, 46);
+  box-shadow: 4px 4px 4px var(--typingGreenShadow);
   opacity: 0.9;
   height: calc(100% - 70px - 50px);
   min-height: 400px;
@@ -109,14 +114,13 @@ ul li a:hover{
   display: none;
 }
 .timer{
-  background-color: rgb(72, 121, 99);
+  background-color: var(--typingGreen);
   box-shadow:inset 4px 4px 6px black;
   opacity: .9;
   margin: auto;
   height: 20px;
   width: 100px;
   border-radius: 10px;
-  will-change: transform, width, height ;
 }
 @keyframes timerBifore{
   0%{
@@ -156,6 +160,9 @@ ul li a:hover{
   letter-spacing: 0.05em;
   display: inline;
   opacity: 1;
+}
+#untype.flash{
+  animation: flash 2s linear infinite;
 }
 #untype.score{
   height: 85px;
@@ -221,7 +228,7 @@ ul li a:hover{
   display: flex;
   align-items: flex-end;
   font-family: 'Xanh Mono', monospace;
-  color:rgb(72, 121, 99);
+  color:var(--typingGreen);
   opacity: .9;
 }
 #accuracy{
@@ -230,7 +237,7 @@ ul li a:hover{
   margin: 0 0 0 auto;
 }
 #rate.safe{
-  color: rgb(72, 121, 99);
+  color: var(--typingGreen);
 }
 #rate.caution{
   color: rgb(221, 206, 0);
@@ -275,7 +282,7 @@ ul li a:hover{
   line-height: 18px;
   font-size: 14px;
   border-radius: 50%;
-  background-color: rgb(72, 121, 99);
+  background-color: var(--typingGreen);
   color: #fff;
   text-shadow: 1px 1px 2px black;
   z-index: -2;
@@ -333,7 +340,6 @@ ul li a:hover{
   border-radius: 50%;
   color: #fff;
   box-shadow:inset 2px 2px 5px black;
-  /* inset -5px -5px 20px 5px rgba(0,0,0,.5); */
   text-shadow: inset 1px 1px 2px black;
   animation: up 5s ease-in forwards, bubble 1s ease-out 5s;
   z-index: -1;
@@ -372,7 +378,7 @@ footer{
   height: 50px;
   line-height: 50px;
   text-align: center;
-  text-shadow: 4px 4px 4px rgb(33, 56, 46);
+  text-shadow: 4px 4px 4px var(--typingGreenShadow);
   visibility:hidden;
 }
 .wf-active footer{
@@ -388,7 +394,7 @@ footer{
   left: 0;
   right: 0;
   bottom:0;
-  background-color: rgba(72, 121, 99,0.8);
+  background-color: var(--typingGreenop);
   opacity: 0;
   pointer-events: none;
   transition: opacity .6s;
@@ -461,11 +467,3 @@ footer{
     pointer-events: none;
   }
 }
-
-/* fullscreen */
-/* @media(min-width: 800px){
-  #balloonroom{
-    width: 96%;
-  }
-} */
-

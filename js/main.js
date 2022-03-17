@@ -30,6 +30,7 @@
   const overlay = document.getElementById("overlay");
   const close = document.getElementById("close");
   const restart = document.getElementById("restart");
+  const timer = document.getElementById("timer");
 
   //サウンドエフェクト
   const typeSound = new Audio("sound/カタッ(Enterキーを押した音).mp3");
@@ -44,6 +45,7 @@
   const missType = [];
 
   //時間関係
+  let startTime;
   let isTyping = false;
   let missHold = false;
   
@@ -57,12 +59,25 @@
   let continuousCorrect = 0;
   let bonusPoint = 0;
 
+    //iosの判定
+    let ua = navigator.userAgent.toLowerCase();
+    let isIOS = ua.indexOf("iphone") !== -1;
+
   //問題のセット
   function setQuestion(){
     const q = questions.splice(Math.floor(Math.random() * questions.length),1)[0];
     untype.textContent = q.word;
     typed.textContent = "";
     mean.textContent = q.mean;
+  };
+
+  //音を鳴らす(ios以外)
+  function playSound(sound){
+    if(isIOS){
+      return;
+    };
+    sound.currentTime = 0;
+    sound.play();
   };
 
   //ボーナスアニメーション
@@ -91,12 +106,10 @@
         return;
       };
       animeCount++;
-      bubbleSound.currentTime = 0;
-      bubbleSound.play();
+      playSound(bubbleSound);
     });
     balloonRoom.appendChild(bonus);
-    bubbleSound.currentTime = 0;
-    bubbleSound.play()
+    playSound(bubbleSound);
   };
 
   //パーセンテージの表示
@@ -116,14 +129,14 @@
   //終了
   function finish(){
     isTyping = false;
+    let finishTime = Date.now() - startTime;
     typed.textContent = "";
-    const finishScore = ((scoreCount + bonusPoint - QuestionLength) * (accuracyRate / 100)).toFixed(2);
+    const finishScore = ((scoreCount + bonusPoint - (finishTime / 1000)) * (accuracyRate / 100)).toFixed(2);
     untype.textContent = finishScore;
-    finishSound.currentTime = 0;
-    finishSound.play();
+    playSound(finishSound);
     untype.classList.add("score");
     restart.classList.add("show");
-    mean.textContent = "finished!";
+    mean.textContent = `finished! ${(finishTime / 1000).toFixed(2)}seconds`;
   };
 
   //ミスしたキーのバルーンを作成
@@ -159,8 +172,7 @@
     //クリックしたら破裂
     balloon.addEventListener("click",()=>{
       balloon.classList.add("explosion");
-      bubbleSound.currentTime = 0;
-      bubbleSound.play();
+      playSound(bubbleSound);
       //アニメーションが終了したら要素を消す
       balloon.addEventListener("animationend",()=>{
         balloon.classList.add("disabled");
@@ -188,6 +200,7 @@
     if(overlay.className === "show"){
       return;
     };
+
     //untypeの1文字目と一致していたら
     if(e.key === untype.textContent.charAt(0)){
       //untypeから削ってtypedに足す
@@ -199,6 +212,7 @@
       continuousCorrect++;
       score.textContent = scoreCount;
       renderRate();
+
       //連続正解したらボーナス(10の倍数ごと)
       if((continuousCorrect % 10) == 0){
         getBonus(continuousCorrect / 10);
@@ -211,8 +225,7 @@
       });
 
       //タイプ音を鳴らす
-      typeSound.currentTime = 0;
-      typeSound.play();
+      playSound(typeSound);
 
       //もしuntypeが無くなったら次の問題へ
       if(untype.textContent.length === 0){
@@ -222,8 +235,7 @@
           return;
         };
         setQuestion();
-        resetSound.currentTime = 0;
-        resetSound.play();
+        playSound(resetSound);
       };
 
     } else { //ミスタイプした場合
@@ -240,9 +252,9 @@
       bad.addEventListener("animationend",()=>{
         bad.classList.remove("pyon");
       });
+
       //ブザーを鳴らす
-      bubbleSound.currentTime = 0;
-      bubbleSound.play();
+      playSound(bubbleSound);
 
       //ミスタイプのキーをカウント
       if(missType.find((v) => v.key === e.key)){ //すでにあるなら加点
@@ -286,10 +298,11 @@
       location.reload();
       return;
     };
+    untype.classList.remove("flash");
     setQuestion();
+    startTime = Date.now();
     isTyping = true;
-    resetSound.currentTime = 0;
-    resetSound.play();
+    playSound(resetSound);
   });
 
 })();
