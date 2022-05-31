@@ -80,7 +80,7 @@ ul li a:hover{
   background-color: #fff;
   box-shadow: 4px 4px 4px var(--typingGreenShadow);
   opacity: 0.9;
-  height: calc(100% - 70px - 50px);
+  height: calc(100% - 70px - 55px);
   min-height: 400px;
   width: 97%;
   border-radius: 8px;
