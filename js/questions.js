@@ -10,6 +10,8 @@ const questions = [
     mean : "cssの正式名称"},
   {word : "hypertextmarkuplanguage",
     mean : "htmlの正式名称"},
+  {word : "php:hypertextprocessor",
+    mean : "PHPの正式名称、再帰的頭字語"},
   
   //html
   {word : "viewport",
@@ -143,6 +145,16 @@ const questions = [
   {word : "useragent",
     mean : "使用しているデバイスの情報を持つnavigatorのプロパティ"},
 
+  // PHP
+  {word : "print_r",
+    mean : "値を出力する為のPHPのメソッド"},
+  {word : "var_dump",
+    mean : "型と値を同時に出力する為のPHPのメソッド"},
+  {word : "preg_match",
+    mean : "正規表現によるマッチングを行う為のPHPのメソッド"},
+  {word : "empty",
+    mean : "変数が空かどうかを判定する為のPHPのメソッド"},
+    
   //命名
   {word : "current",
     mean : "「現在の」変数名などでよく使用される"},
